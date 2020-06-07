@@ -16,7 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 		guard let windowScene = (scene as? UIWindowScene) else { return }
 
 		let window = UIWindow(frame: UIScreen.main.bounds)
-		let appCoordinator = AppCoordinator(window: window)
+		let appCoordinator = AppCoordinator(presenter: WindowPresenter(window: window))
 		appCoordinator.start()
 		window.makeKeyAndVisible()
 		window.windowScene = windowScene

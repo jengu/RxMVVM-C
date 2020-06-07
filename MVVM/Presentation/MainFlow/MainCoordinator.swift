@@ -10,51 +10,42 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class MainCoordinator {
-	private let disposeBag = DisposeBag()
-	private let navigationController: UINavigationController
+class MainCoordinator: Coordinator<NavigationPresenter> {
 
-	deinit {
-		print("\(String(describing: self)): \(#function)")
-	}
-
-	init(navigationController: UINavigationController) {
-		self.navigationController = navigationController
-	}
-
-	func start() {
-		navigationController.viewControllers = [createMainViewController()]
+	override func start() {
+		let viewController = createMainViewController()
+		presenter.push(viewController)
 	}
 
 	private func createMainViewController() -> MainViewController {
 		let viewModel = MainViewModel()
 		viewModel.output.showPushScreen
 			.drive(onNext: { [weak self] in
-				self?.showPushViewController()
+				self?.showNextViewController()
 			})
-			.disposed(by: disposeBag)
+			.disposed(by: bag)
 		viewModel.output.showModalScreen
 			.drive(onNext: { [weak self] in
-				self?.showModalViewController()
+				self?.showModalFlow()
 			})
-			.disposed(by: disposeBag)
+			.disposed(by: bag)
 		let viewController = MainViewController(viewModel: viewModel)
 		return viewController
 	}
 
-	private func showPushViewController() {
-		let viewController = createMainPushViewController()
-		navigationController.pushViewController(viewController, animated: true)
-	}
-
-	private func createMainPushViewController() -> MainPushViewController {
+	private func createPushViewController() -> MainPushViewController {
 		let viewModel = MainPushViewModel()
 		let viewController = MainPushViewController(viewModel: viewModel)
 		return viewController
 	}
 
-	private func showModalViewController() {
-		let modalCoordinator = ModalCoordinator(startViewController: navigationController)
-		modalCoordinator.start()
+	private func showNextViewController() {
+		let viewController = createPushViewController()
+		presenter.push(viewController)
+	}
+
+	private func showModalFlow() {
+		guard let presenter = presenter.createModalNavigationPresenter() else { return }
+		coordinate(to: ModalCoordinator(presenter: presenter))
 	}
 }

@@ -8,21 +8,11 @@
 
 import UIKit
 
-class AppCoordinator {
-	private let window: UIWindow
-	private let navigationController: UINavigationController = .init()
-
-	deinit {
-		print("\(String(describing: self)): \(#function)")
-	}
-
-	init(window: UIWindow) {
-		self.window = window
-		window.rootViewController = navigationController
-	}
-
-	func start() {
-		let mainCoordinator = MainCoordinator(navigationController: navigationController)
-		mainCoordinator.start()
+class AppCoordinator: Coordinator<WindowPresenter> {
+	override func start() {
+		let navigationController = UINavigationController()
+		presenter.setRootViewController(navigationController)
+		let navigationPresenter = NavigationPresenter(navigationController: navigationController)
+		coordinate(to: MainCoordinator(presenter: navigationPresenter))
 	}
 }
