@@ -41,6 +41,8 @@ class EditValueViewController: UIViewController {
 	private func configure() {
 		title = "Push Screen"
 		view.backgroundColor = .white
+		valueTextField.textAlignment = .center
+		valueTextField.borderStyle = .line
 		saveButton.setTitleColor(.black, for: .normal)
 	}
 
@@ -49,7 +51,8 @@ class EditValueViewController: UIViewController {
 		view.addSubview(valueTextField)
 		NSLayoutConstraint.activate([
 			valueTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-			valueTextField.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+			valueTextField.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+			valueTextField.widthAnchor.constraint(equalToConstant: 300)
 		])
 
 		saveButton.translatesAutoresizingMaskIntoConstraints = false
@@ -61,12 +64,9 @@ class EditValueViewController: UIViewController {
 	}
 
 	private func bindViewActions() {
-		saveButton.rx.tap.asObservable()
-			.bind(to: viewModel.viewActions.tapSaveButton)
-			.disposed(by: disposeBag)
-
-		valueTextField.rx.text.asObservable()
-			.bind(to: viewModel.viewActions.valueChanged)
+		saveButton.rx.tap
+			.map { [weak self] in self?.valueTextField.text }
+			.bind(to: viewModel.viewActions.savedValue)
 			.disposed(by: disposeBag)
 	}
 

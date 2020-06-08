@@ -10,8 +10,19 @@ import RxSwift
 import Foundation
 
 class EditValueCoordinator: Coordinator<ModalPresenter, EditValueCoordinator.Output> {
+	struct Input {
+		let value: Observable<String?>
+	}
+
 	struct Output {
 		let value: Observable<String?>
+	}
+
+	private let input: Input
+
+	init(presenter: ModalPresenter, input: Input) {
+		self.input = input
+		super.init(presenter: presenter)
 	}
 
 	override func start() -> Output {
@@ -20,13 +31,18 @@ class EditValueCoordinator: Coordinator<ModalPresenter, EditValueCoordinator.Out
 		let viewController = EditValueViewController(viewModel: viewModel)
 		presenter.present(viewController)
 
-		let outputValue = viewModel.output.value.asObservable()
-			.do(afterNext: { [weak self] _ in
+		input.value
+			.bind(to: viewModel.input.value)
+			.disposed(by: bag)
+
+		viewModel.output.value.asObservable()
+			.bind(onNext: { [weak self] _ in
 				self?.presenter.dismiss()
 			})
+			.disposed(by: bag)
 
 		return Output(
-			value: outputValue
+			value: viewModel.output.value.asObservable()
 		)
 	}
 }

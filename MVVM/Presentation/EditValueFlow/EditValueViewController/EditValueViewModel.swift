@@ -20,8 +20,7 @@ class EditValueViewModel {
 	}
 
 	struct ViewActions {
-		let valueChanged: PublishRelay<String?> = .init()
-		let tapSaveButton: PublishRelay<Void> = .init()
+		let savedValue: PublishRelay<String?> = .init()
 	}
 
 	struct ViewData {
@@ -39,11 +38,8 @@ class EditValueViewModel {
 	}
 
 	private func createOutput() -> Output {
-		let lastSavedValue = viewActions.tapSaveButton
-			.withLatestFrom(viewActions.valueChanged)
-
 		return Output(
-			value: lastSavedValue.asDriverOnErrorJustComplete()
+			value: viewActions.savedValue.asDriver()
 		)
 	}
 
