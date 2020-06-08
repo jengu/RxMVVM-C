@@ -7,8 +7,11 @@
 //
 
 import Foundation
+import RxSwift
 
 class PushCoordinator: Coordinator<NavigationPresenter, Void> {
+	private let valueRelay: BehaviorSubject<String?> = .init(value: "Some")
+
 	override func start() {
 		let viewController = createPushViewController()
 		presenter.push(viewController)
@@ -16,15 +19,32 @@ class PushCoordinator: Coordinator<NavigationPresenter, Void> {
 
 	private func createPushViewController() -> MainPushViewController {
 		let viewModel = MainPushViewModel()
-		viewModel.output.pushAgain
-			.drive(
-				onNext: { [weak self] in
-					self?.showAnotherPushFlow()
-				}
-			)
+
+		valueRelay.asObserver()
+			.debug("🐠 valueRelay")
+			.bind(to: viewModel.input.value)
 			.disposed(by: bag)
+
+		viewModel.output.pushAgain
+			.drive(onNext: { [weak self] in
+				self?.showAnotherPushFlow()
+			})
+			.disposed(by: bag)
+
+		viewModel.output.editValue
+			.drive(onNext: { [weak self] in
+				self?.showEditValue()
+			})
+			.disposed(by: bag)
+
 		let viewController = MainPushViewController(viewModel: viewModel)
 		return viewController
+	}
+
+	private func showEditValue() {
+		guard let presenter = presenter.createModalPresenter() else { return }
+		let output = coordinate(to: EditValueCoordinator(presenter: presenter))
+		output.value.bind(to: valueRelay).disposed(by: bag)
 	}
 
 	private func showAnotherPushFlow() {
