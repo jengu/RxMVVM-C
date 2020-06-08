@@ -9,7 +9,7 @@
 import RxSwift
 import Foundation
 
-class Coordinator<SomePresenter: Presenter> {
+class Coordinator<SomePresenter: Presenter, FlowOutput> {
 	private let identifier = UUID()
 	private var childCoordinators: [UUID: Any] = [:]
 
@@ -25,10 +25,11 @@ class Coordinator<SomePresenter: Presenter> {
 		print("\(String(describing: self)): \(#function)")
 	}
 
-	func start() {
+	func start() -> FlowOutput {
+		fatalError("Abstract method")
 	}
 
-	func coordinate<P>(to anotherCoordinator: Coordinator<P>) {
+	func coordinate<P,O>(to anotherCoordinator: Coordinator<P,O>) -> O {
 		let identifier = anotherCoordinator.identifier
 		childCoordinators[identifier] = anotherCoordinator
 
@@ -40,6 +41,6 @@ class Coordinator<SomePresenter: Presenter> {
 			)
 			.disposed(by: bag)
 
-		anotherCoordinator.start()
+		return anotherCoordinator.start()
 	}
 }

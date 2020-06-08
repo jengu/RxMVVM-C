@@ -36,6 +36,9 @@
 		63B1E562248D5BD200D3A72F /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = 63B1E561248D5BD200D3A72F /* RxBlocking */; };
 		63B1E564248D5CED00D3A72F /* WindowPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B1E563248D5CED00D3A72F /* WindowPresenter.swift */; };
 		63B1E566248D5E6E00D3A72F /* NavigationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B1E565248D5E6E00D3A72F /* NavigationPresenter.swift */; };
+		63F7ECBD248E4B950008DC91 /* EditValueCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F7ECBC248E4B950008DC91 /* EditValueCoordinator.swift */; };
+		63F7ECC0248E4BB00008DC91 /* EditValueViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F7ECBF248E4BB00008DC91 /* EditValueViewModel.swift */; };
+		63F7ECC2248E4C0C0008DC91 /* EditValueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F7ECC1248E4C0C0008DC91 /* EditValueViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +75,9 @@
 		63B1E558248D56D200D3A72F /* ModalNavigationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalNavigationPresenter.swift; sourceTree = "<group>"; };
 		63B1E563248D5CED00D3A72F /* WindowPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowPresenter.swift; sourceTree = "<group>"; };
 		63B1E565248D5E6E00D3A72F /* NavigationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationPresenter.swift; sourceTree = "<group>"; };
+		63F7ECBC248E4B950008DC91 /* EditValueCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditValueCoordinator.swift; sourceTree = "<group>"; };
+		63F7ECBF248E4BB00008DC91 /* EditValueViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditValueViewModel.swift; sourceTree = "<group>"; };
+		63F7ECC1248E4C0C0008DC91 /* EditValueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditValueViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +130,7 @@
 		3F492458248A59ED00D7C440 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				63F7ECBB248E4B750008DC91 /* EditValueFlow */,
 				63126F7B248E3002008818C9 /* PushFlow */,
 				3F49245A248A59FB00D7C440 /* ModalFlow */,
 				3F492459248A59F500D7C440 /* MainFlow */,
@@ -240,6 +247,24 @@
 			path = Presenter;
 			sourceTree = "<group>";
 		};
+		63F7ECBB248E4B750008DC91 /* EditValueFlow */ = {
+			isa = PBXGroup;
+			children = (
+				63F7ECBE248E4BA00008DC91 /* EditValueViewController */,
+				63F7ECBC248E4B950008DC91 /* EditValueCoordinator.swift */,
+			);
+			path = EditValueFlow;
+			sourceTree = "<group>";
+		};
+		63F7ECBE248E4BA00008DC91 /* EditValueViewController */ = {
+			isa = PBXGroup;
+			children = (
+				63F7ECBF248E4BB00008DC91 /* EditValueViewModel.swift */,
+				63F7ECC1248E4C0C0008DC91 /* EditValueViewController.swift */,
+			);
+			path = EditValueViewController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -335,12 +360,15 @@
 				3F49245E248A5A2D00D7C440 /* MainViewController.swift in Sources */,
 				3FBFD129248A669700E2150B /* PrimitiveSequence+Ext.swift in Sources */,
 				3FBFD12E248A722D00E2150B /* ModalPushViewController.swift in Sources */,
+				63F7ECC2248E4C0C0008DC91 /* EditValueViewController.swift in Sources */,
 				3F492460248A5A4900D7C440 /* MainViewModel.swift in Sources */,
 				3FBFD130248A724300E2150B /* ModalPushViewModel.swift in Sources */,
 				3F492469248A5AA800D7C440 /* ModalViewController.swift in Sources */,
 				63B1E54C248D2F7800D3A72F /* ModalPresenter.swift in Sources */,
+				63F7ECBD248E4B950008DC91 /* EditValueCoordinator.swift in Sources */,
 				63126F7D248E3015008818C9 /* PushCoordinator.swift in Sources */,
 				3FBFD12B248A669700E2150B /* PublishRelay+Ext.swift in Sources */,
+				63F7ECC0248E4BB00008DC91 /* EditValueViewModel.swift in Sources */,
 				3F492464248A5A7F00D7C440 /* MainPushViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
