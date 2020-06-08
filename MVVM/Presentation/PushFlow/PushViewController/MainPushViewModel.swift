@@ -6,6 +6,8 @@
 //  Copyright © 2020 none. All rights reserved.
 //
 
+import RxSwift
+import RxCocoa
 import Foundation
 
 class MainPushViewModel {
@@ -13,12 +15,15 @@ class MainPushViewModel {
 	}
 
 	struct Output {
+		let pushAgain: Driver<Void>
 	}
 
 	struct ViewActions {
+		let tapPushAgainButton: PublishRelay<Void> = .init()
 	}
 
 	struct ViewData {
+		let pushAgainButtonTitle: Driver<String>
 	}
 
 	let input: Input = .init()
@@ -31,10 +36,14 @@ class MainPushViewModel {
 	}
 
 	private func createOutput() -> Output {
-		.init()
+		.init(
+			pushAgain: viewActions.tapPushAgainButton.asDriver()
+		)
 	}
 
 	private func createViewData() -> ViewData {
-		.init()
+		.init(
+			pushAgainButtonTitle: .just("Push again")
+		)
 	}
 }

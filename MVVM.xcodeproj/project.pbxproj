@@ -25,8 +25,9 @@
 		3FBFD12B248A669700E2150B /* PublishRelay+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBFD128248A669700E2150B /* PublishRelay+Ext.swift */; };
 		3FBFD12E248A722D00E2150B /* ModalPushViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBFD12D248A722D00E2150B /* ModalPushViewController.swift */; };
 		3FBFD130248A724300E2150B /* ModalPushViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBFD12F248A724300E2150B /* ModalPushViewModel.swift */; };
+		63126F7D248E3015008818C9 /* PushCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63126F7C248E3015008818C9 /* PushCoordinator.swift */; };
 		63B1E54C248D2F7800D3A72F /* ModalPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B1E54B248D2F7800D3A72F /* ModalPresenter.swift */; };
-		63B1E54E248D326700D3A72F /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B1E54D248D326700D3A72F /* BaseCoordinator.swift */; };
+		63B1E54E248D326700D3A72F /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B1E54D248D326700D3A72F /* Coordinator.swift */; };
 		63B1E550248D338F00D3A72F /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B1E54F248D338F00D3A72F /* Presenter.swift */; };
 		63B1E559248D56D200D3A72F /* ModalNavigationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B1E558248D56D200D3A72F /* ModalNavigationPresenter.swift */; };
 		63B1E55C248D5BD200D3A72F /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 63B1E55B248D5BD200D3A72F /* RxSwift */; };
@@ -64,8 +65,9 @@
 		3FBFD128248A669700E2150B /* PublishRelay+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PublishRelay+Ext.swift"; sourceTree = "<group>"; };
 		3FBFD12D248A722D00E2150B /* ModalPushViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalPushViewController.swift; sourceTree = "<group>"; };
 		3FBFD12F248A724300E2150B /* ModalPushViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalPushViewModel.swift; sourceTree = "<group>"; };
+		63126F7C248E3015008818C9 /* PushCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushCoordinator.swift; sourceTree = "<group>"; };
 		63B1E54B248D2F7800D3A72F /* ModalPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalPresenter.swift; sourceTree = "<group>"; };
-		63B1E54D248D326700D3A72F /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
+		63B1E54D248D326700D3A72F /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		63B1E54F248D338F00D3A72F /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
 		63B1E558248D56D200D3A72F /* ModalNavigationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalNavigationPresenter.swift; sourceTree = "<group>"; };
 		63B1E563248D5CED00D3A72F /* WindowPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowPresenter.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 		3F492458248A59ED00D7C440 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				63126F7B248E3002008818C9 /* PushFlow */,
 				3F49245A248A59FB00D7C440 /* ModalFlow */,
 				3F492459248A59F500D7C440 /* MainFlow */,
 				3F49245B248A5A0F00D7C440 /* AppCoordinator.swift */,
@@ -132,7 +135,6 @@
 		3F492459248A59F500D7C440 /* MainFlow */ = {
 			isa = PBXGroup;
 			children = (
-				3F492462248A5A7300D7C440 /* PushViewController */,
 				3F492461248A5A6700D7C440 /* MainViewController */,
 				3F49246C248A5AE700D7C440 /* MainCoordinator.swift */,
 			);
@@ -208,11 +210,20 @@
 			path = ModalPushViewController;
 			sourceTree = "<group>";
 		};
+		63126F7B248E3002008818C9 /* PushFlow */ = {
+			isa = PBXGroup;
+			children = (
+				3F492462248A5A7300D7C440 /* PushViewController */,
+				63126F7C248E3015008818C9 /* PushCoordinator.swift */,
+			);
+			path = PushFlow;
+			sourceTree = "<group>";
+		};
 		63B1E549248D2F4700D3A72F /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
 				63B1E54A248D2F6100D3A72F /* Presenter */,
-				63B1E54D248D326700D3A72F /* BaseCoordinator.swift */,
+				63B1E54D248D326700D3A72F /* Coordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -310,7 +321,7 @@
 			files = (
 				3F49245C248A5A0F00D7C440 /* AppCoordinator.swift in Sources */,
 				63B1E550248D338F00D3A72F /* Presenter.swift in Sources */,
-				63B1E54E248D326700D3A72F /* BaseCoordinator.swift in Sources */,
+				63B1E54E248D326700D3A72F /* Coordinator.swift in Sources */,
 				3F49246F248A5AFD00D7C440 /* ModalCoordinator.swift in Sources */,
 				63B1E564248D5CED00D3A72F /* WindowPresenter.swift in Sources */,
 				3F49246B248A5ABF00D7C440 /* ModalViewModel.swift in Sources */,
@@ -328,6 +339,7 @@
 				3FBFD130248A724300E2150B /* ModalPushViewModel.swift in Sources */,
 				3F492469248A5AA800D7C440 /* ModalViewController.swift in Sources */,
 				63B1E54C248D2F7800D3A72F /* ModalPresenter.swift in Sources */,
+				63126F7D248E3015008818C9 /* PushCoordinator.swift in Sources */,
 				3FBFD12B248A669700E2150B /* PublishRelay+Ext.swift in Sources */,
 				3F492464248A5A7F00D7C440 /* MainPushViewController.swift in Sources */,
 			);

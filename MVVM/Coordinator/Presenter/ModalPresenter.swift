@@ -11,17 +11,17 @@ import RxCocoa
 import UIKit
 
 class ModalPresenter: Presenter {
-	private let dismissSubject = PublishSubject<Void>()
+	private let dismissRelay = PublishRelay<Void>()
 
 	var closed: Observable<Void> {
-		dismissSubject.asObserver()
+		dismissRelay.asObservable()
 	}
 
 	private weak var rootViewController: UIViewController?
 	private weak var presentedViewController: UIViewController?
 	private lazy var presentationDelegate: PresentationDelegate = {
 		PresentationDelegate { [weak self] in
-			self?.dismissSubject.onNext(())
+			self?.dismissRelay.accept(())
 		}
 	}()
 
@@ -37,11 +37,15 @@ class ModalPresenter: Presenter {
 
 	func dismiss() {
 		presentedViewController?.dismiss(animated: true, completion: nil)
-		dismissSubject.onNext(())
+		dismissRelay.accept(())
 	}
 
 	func createModalPresenter() -> ModalPresenter? {
 		presentedViewController.map { ModalPresenter(rootViewController: $0) }
+	}
+
+	func createModalNavigationPresenter() -> ModalNavigationPresenter? {
+		presentedViewController.map { ModalNavigationPresenter(rootViewController: $0) }
 	}
 }
 

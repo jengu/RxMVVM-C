@@ -7,14 +7,15 @@
 //
 
 import RxSwift
+import RxCocoa
 import UIKit
 
 class NavigationPresenter: Presenter {
-	private let dismissSubject = PublishSubject<Void>()
-	private let presentationDelegate = NavigationPresentationDelegate()
+	private let dismissRelay = PublishRelay<Void>()
+	private let presentationDelegate: NavigationPresentationDelegate
 
 	var closed: Observable<Void> {
-		dismissSubject.asObserver()
+		dismissRelay.asObservable()
 	}
 
 	private weak var navigationController: UINavigationController?
@@ -22,11 +23,13 @@ class NavigationPresenter: Presenter {
 
 	init(navigationController: UINavigationController) {
 		self.navigationController = navigationController
+
+		presentationDelegate = navigationController.delegate as? NavigationPresentationDelegate ?? NavigationPresentationDelegate()
 		navigationController.delegate = presentationDelegate
 		if let initialViewController = navigationController.topViewController {
 			self.initialViewController = initialViewController
-			presentationDelegate.addObserverOnDidShow(of: initialViewController) { [dismissSubject] in
-				dismissSubject.onNext(())
+			presentationDelegate.addObserverOnDidShow(of: initialViewController) { [weak self] in
+				self?.dismissRelay.accept(())
 			}
 		}
 	}

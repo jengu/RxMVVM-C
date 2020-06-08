@@ -18,6 +18,7 @@ class Coordinator<SomePresenter: Presenter> {
 
 	init(presenter: SomePresenter) {
 		self.presenter = presenter
+		print("\(String(describing: self)): \(#function)")
 	}
 
 	deinit {
@@ -28,14 +29,12 @@ class Coordinator<SomePresenter: Presenter> {
 	}
 
 	func coordinate<P>(to anotherCoordinator: Coordinator<P>) {
-		print("Started flow \(String(describing: anotherCoordinator))")
 		let identifier = anotherCoordinator.identifier
 		childCoordinators[identifier] = anotherCoordinator
 
 		anotherCoordinator.presenter.closed
 			.subscribe(
-				onNext: { [weak self] in
-					print("Finished flow \(String(describing: anotherCoordinator))")
+				onNext: { [weak self, identifier] in
 					self?.childCoordinators[identifier] = nil
 				}
 			)

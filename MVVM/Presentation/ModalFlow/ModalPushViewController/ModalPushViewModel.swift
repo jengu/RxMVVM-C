@@ -15,12 +15,15 @@ class ModalPushViewModel {
 	}
 
 	struct Output {
+		let openAnotherModal: Driver<Void>
 	}
 
 	struct ViewActions {
+		let tapAnotherModalButton: PublishRelay<Void> = .init()
 	}
 
 	struct ViewData {
+		let anotherModalTitle: Driver<String>
 	}
 
 	let input: Input = .init()
@@ -33,10 +36,14 @@ class ModalPushViewModel {
 	}
 
 	private func createOutput() -> Output {
-		.init()
+		.init(
+			openAnotherModal: viewActions.tapAnotherModalButton.asDriver()
+		)
 	}
 
 	private func createViewData() -> ViewData {
-		.init()
+		.init(
+			anotherModalTitle: .just("Open another modal")
+		)
 	}
 }

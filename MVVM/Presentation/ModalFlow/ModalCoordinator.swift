@@ -34,7 +34,17 @@ class ModalCoordinator: Coordinator<ModalNavigationPresenter> {
 
 	private func createModalPushViewController() -> ModalPushViewController {
 		let viewModel = ModalPushViewModel()
+		viewModel.output.openAnotherModal
+			.drive(onNext: { [weak self] in
+				self?.openAnotherModal()
+			})
+			.disposed(by: bag)
 		let viewController = ModalPushViewController(viewModel: viewModel)
 		return viewController
+	}
+
+	private func openAnotherModal() {
+		guard let presenter = presenter.createModalNavigationPresenter() else { return }
+		coordinate(to: ModalCoordinator(presenter: presenter))
 	}
 }
