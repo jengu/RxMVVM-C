@@ -21,7 +21,7 @@ class MainCoordinator: Coordinator<NavigationPresenter> {
 		let viewModel = MainViewModel()
 		viewModel.output.showPushScreen
 			.drive(onNext: { [weak self] in
-				self?.showNextViewController()
+				self?.showPushFlow()
 			})
 			.disposed(by: bag)
 		viewModel.output.showModalScreen
@@ -33,15 +33,9 @@ class MainCoordinator: Coordinator<NavigationPresenter> {
 		return viewController
 	}
 
-	private func createPushViewController() -> MainPushViewController {
-		let viewModel = MainPushViewModel()
-		let viewController = MainPushViewController(viewModel: viewModel)
-		return viewController
-	}
-
-	private func showNextViewController() {
-		let viewController = createPushViewController()
-		presenter.push(viewController)
+	private func showPushFlow() {
+		guard let presenter = presenter.createNavigationPresenter() else { return }
+		coordinate(to: PushCoordinator(presenter: presenter))
 	}
 
 	private func showModalFlow() {

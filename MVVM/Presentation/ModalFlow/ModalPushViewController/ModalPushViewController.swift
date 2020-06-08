@@ -12,6 +12,8 @@ import RxCocoa
 
 class ModalPushViewController: UIViewController {
 	private let viewModel: ModalPushViewModel
+	private let disposeBag: DisposeBag = .init()
+	private let openAnotherModalButton: UIButton = .init()
 
 	deinit {
 		print("\(String(describing: self)): \(#function)")
@@ -38,14 +40,27 @@ class ModalPushViewController: UIViewController {
 	private func configure() {
 		title = "Modal Push Screen"
 		view.backgroundColor = .white
+		openAnotherModalButton.setTitleColor(.black, for: .normal)
 	}
 
 	private func addSubviews() {
+		openAnotherModalButton.translatesAutoresizingMaskIntoConstraints = false
+		view.addSubview(openAnotherModalButton)
+		NSLayoutConstraint.activate([
+			openAnotherModalButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+			openAnotherModalButton.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+		])
 	}
 
 	private func bindViewActions() {
+		openAnotherModalButton.rx.tap.asObservable()
+			.bind(to: viewModel.viewActions.tapAnotherModalButton)
+			.disposed(by: disposeBag)
 	}
 
 	private func bindViewData() {
+		viewModel.viewData.anotherModalTitle
+			.drive(openAnotherModalButton.rx.title(for: .normal))
+			.disposed(by: disposeBag)
 	}
 }

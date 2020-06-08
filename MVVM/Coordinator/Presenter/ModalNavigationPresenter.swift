@@ -48,4 +48,8 @@ class ModalNavigationPresenter: Presenter {
 	func createNavigationPresenter() -> NavigationPresenter? {
 		navigationController.map { NavigationPresenter(navigationController: $0) }
 	}
+
+	func createModalNavigationPresenter() -> ModalNavigationPresenter? {
+		navigationController.map { ModalNavigationPresenter(rootViewController: $0) }
+	}
 }
