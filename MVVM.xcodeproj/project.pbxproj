@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,14 +20,21 @@
 		3F49246B248A5ABF00D7C440 /* ModalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F49246A248A5ABF00D7C440 /* ModalViewModel.swift */; };
 		3F49246D248A5AE700D7C440 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F49246C248A5AE700D7C440 /* MainCoordinator.swift */; };
 		3F49246F248A5AFD00D7C440 /* ModalCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F49246E248A5AFD00D7C440 /* ModalCoordinator.swift */; };
-		3F492474248A610800D7C440 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F492472248A610800D7C440 /* RxCocoa.framework */; };
-		3F492476248A610800D7C440 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F492473248A610800D7C440 /* RxSwift.framework */; };
-		3F49247E248A618000D7C440 /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F49247A248A618000D7C440 /* RxRelay.framework */; };
 		3FBFD129248A669700E2150B /* PrimitiveSequence+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBFD126248A669700E2150B /* PrimitiveSequence+Ext.swift */; };
 		3FBFD12A248A669700E2150B /* ObservableType+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBFD127248A669700E2150B /* ObservableType+Ext.swift */; };
 		3FBFD12B248A669700E2150B /* PublishRelay+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBFD128248A669700E2150B /* PublishRelay+Ext.swift */; };
 		3FBFD12E248A722D00E2150B /* ModalPushViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBFD12D248A722D00E2150B /* ModalPushViewController.swift */; };
 		3FBFD130248A724300E2150B /* ModalPushViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBFD12F248A724300E2150B /* ModalPushViewModel.swift */; };
+		63B1E54C248D2F7800D3A72F /* ModalPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B1E54B248D2F7800D3A72F /* ModalPresenter.swift */; };
+		63B1E54E248D326700D3A72F /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B1E54D248D326700D3A72F /* BaseCoordinator.swift */; };
+		63B1E550248D338F00D3A72F /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B1E54F248D338F00D3A72F /* Presenter.swift */; };
+		63B1E559248D56D200D3A72F /* ModalNavigationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B1E558248D56D200D3A72F /* ModalNavigationPresenter.swift */; };
+		63B1E55C248D5BD200D3A72F /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 63B1E55B248D5BD200D3A72F /* RxSwift */; };
+		63B1E55E248D5BD200D3A72F /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 63B1E55D248D5BD200D3A72F /* RxRelay */; };
+		63B1E560248D5BD200D3A72F /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 63B1E55F248D5BD200D3A72F /* RxCocoa */; };
+		63B1E562248D5BD200D3A72F /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = 63B1E561248D5BD200D3A72F /* RxBlocking */; };
+		63B1E564248D5CED00D3A72F /* WindowPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B1E563248D5CED00D3A72F /* WindowPresenter.swift */; };
+		63B1E566248D5E6E00D3A72F /* NavigationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B1E565248D5E6E00D3A72F /* NavigationPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +64,12 @@
 		3FBFD128248A669700E2150B /* PublishRelay+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PublishRelay+Ext.swift"; sourceTree = "<group>"; };
 		3FBFD12D248A722D00E2150B /* ModalPushViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalPushViewController.swift; sourceTree = "<group>"; };
 		3FBFD12F248A724300E2150B /* ModalPushViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalPushViewModel.swift; sourceTree = "<group>"; };
+		63B1E54B248D2F7800D3A72F /* ModalPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalPresenter.swift; sourceTree = "<group>"; };
+		63B1E54D248D326700D3A72F /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
+		63B1E54F248D338F00D3A72F /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
+		63B1E558248D56D200D3A72F /* ModalNavigationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalNavigationPresenter.swift; sourceTree = "<group>"; };
+		63B1E563248D5CED00D3A72F /* WindowPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowPresenter.swift; sourceTree = "<group>"; };
+		63B1E565248D5E6E00D3A72F /* NavigationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,9 +77,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F49247E248A618000D7C440 /* RxRelay.framework in Frameworks */,
-				3F492476248A610800D7C440 /* RxSwift.framework in Frameworks */,
-				3F492474248A610800D7C440 /* RxCocoa.framework in Frameworks */,
+				63B1E560248D5BD200D3A72F /* RxCocoa in Frameworks */,
+				63B1E55E248D5BD200D3A72F /* RxRelay in Frameworks */,
+				63B1E55C248D5BD200D3A72F /* RxSwift in Frameworks */,
+				63B1E562248D5BD200D3A72F /* RxBlocking in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,6 +107,7 @@
 		3F492443248A57DA00D7C440 /* MVVM */ = {
 			isa = PBXGroup;
 			children = (
+				63B1E549248D2F4700D3A72F /* Coordinator */,
 				3FBFD125248A667700E2150B /* RxExt */,
 				3F492458248A59ED00D7C440 /* Presentation */,
 				3F492444248A57DA00D7C440 /* AppDelegate.swift */,
@@ -193,6 +208,27 @@
 			path = ModalPushViewController;
 			sourceTree = "<group>";
 		};
+		63B1E549248D2F4700D3A72F /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				63B1E54A248D2F6100D3A72F /* Presenter */,
+				63B1E54D248D326700D3A72F /* BaseCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		63B1E54A248D2F6100D3A72F /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				63B1E54F248D338F00D3A72F /* Presenter.swift */,
+				63B1E54B248D2F7800D3A72F /* ModalPresenter.swift */,
+				63B1E558248D56D200D3A72F /* ModalNavigationPresenter.swift */,
+				63B1E563248D5CED00D3A72F /* WindowPresenter.swift */,
+				63B1E565248D5E6E00D3A72F /* NavigationPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -200,7 +236,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3F492455248A57DD00D7C440 /* Build configuration list for PBXNativeTarget "MVVM" */;
 			buildPhases = (
-				3F492470248A5F4000D7C440 /* Carthage Copy Frameworks */,
 				3F49243D248A57DA00D7C440 /* Sources */,
 				3F49243E248A57DA00D7C440 /* Frameworks */,
 				3F49243F248A57DA00D7C440 /* Resources */,
@@ -210,6 +245,12 @@
 			dependencies = (
 			);
 			name = MVVM;
+			packageProductDependencies = (
+				63B1E55B248D5BD200D3A72F /* RxSwift */,
+				63B1E55D248D5BD200D3A72F /* RxRelay */,
+				63B1E55F248D5BD200D3A72F /* RxCocoa */,
+				63B1E561248D5BD200D3A72F /* RxBlocking */,
+			);
 			productName = MVVM;
 			productReference = 3F492441248A57DA00D7C440 /* MVVM.app */;
 			productType = "com.apple.product-type.application";
@@ -238,6 +279,9 @@
 				Base,
 			);
 			mainGroup = 3F492438248A57DA00D7C440;
+			packageReferences = (
+				63B1E55A248D5BD200D3A72F /* XCRemoteSwiftPackageReference "RxSwift" */,
+			);
 			productRefGroup = 3F492442248A57DA00D7C440 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -259,44 +303,22 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		3F492470248A5F4000D7C440 /* Carthage Copy Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RxRelay.framework",
-			);
-			name = "Carthage Copy Frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxCocoa.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxSwift.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxRelay.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		3F49243D248A57DA00D7C440 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				3F49245C248A5A0F00D7C440 /* AppCoordinator.swift in Sources */,
+				63B1E550248D338F00D3A72F /* Presenter.swift in Sources */,
+				63B1E54E248D326700D3A72F /* BaseCoordinator.swift in Sources */,
 				3F49246F248A5AFD00D7C440 /* ModalCoordinator.swift in Sources */,
+				63B1E564248D5CED00D3A72F /* WindowPresenter.swift in Sources */,
 				3F49246B248A5ABF00D7C440 /* ModalViewModel.swift in Sources */,
 				3F492466248A5A8E00D7C440 /* MainPushViewModel.swift in Sources */,
 				3F492445248A57DA00D7C440 /* AppDelegate.swift in Sources */,
 				3F49246D248A5AE700D7C440 /* MainCoordinator.swift in Sources */,
+				63B1E559248D56D200D3A72F /* ModalNavigationPresenter.swift in Sources */,
+				63B1E566248D5E6E00D3A72F /* NavigationPresenter.swift in Sources */,
 				3F492447248A57DA00D7C440 /* SceneDelegate.swift in Sources */,
 				3FBFD12A248A669700E2150B /* ObservableType+Ext.swift in Sources */,
 				3F49245E248A5A2D00D7C440 /* MainViewController.swift in Sources */,
@@ -305,6 +327,7 @@
 				3F492460248A5A4900D7C440 /* MainViewModel.swift in Sources */,
 				3FBFD130248A724300E2150B /* ModalPushViewModel.swift in Sources */,
 				3F492469248A5AA800D7C440 /* ModalViewController.swift in Sources */,
+				63B1E54C248D2F7800D3A72F /* ModalPresenter.swift in Sources */,
 				3FBFD12B248A669700E2150B /* PublishRelay+Ext.swift in Sources */,
 				3F492464248A5A7F00D7C440 /* MainPushViewController.swift in Sources */,
 			);
@@ -504,6 +527,40 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		63B1E55A248D5BD200D3A72F /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		63B1E55B248D5BD200D3A72F /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 63B1E55A248D5BD200D3A72F /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		63B1E55D248D5BD200D3A72F /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 63B1E55A248D5BD200D3A72F /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		63B1E55F248D5BD200D3A72F /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 63B1E55A248D5BD200D3A72F /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		63B1E561248D5BD200D3A72F /* RxBlocking */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 63B1E55A248D5BD200D3A72F /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxBlocking;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3F492439248A57DA00D7C440 /* Project object */;
 }

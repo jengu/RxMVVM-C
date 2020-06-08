@@ -10,23 +10,10 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class ModalCoordinator {
-	private let disposeBag = DisposeBag()
-	private let startViewController: UIViewController
-	private let navigationController: UINavigationController = .init()
-
-	deinit {
-		print("\(String(describing: self)): \(#function)")
-	}
-
-	init(startViewController: UIViewController) {
-		self.startViewController = startViewController
-	}
-
-	func start() {
+class ModalCoordinator: Coordinator<ModalNavigationPresenter> {
+	override func start() {
 		let viewController = createModalViewController()
-		navigationController.viewControllers = [viewController]
-		startViewController.present(navigationController, animated: true, completion: nil)
+		presenter.push(viewController)
 	}
 
 	private func createModalViewController() -> ModalViewController {
@@ -35,14 +22,14 @@ class ModalCoordinator {
 			.drive(onNext: { [weak self] in
 				self?.showPushViewController()
 			})
-			.disposed(by: disposeBag)
+			.disposed(by: bag)
 		let viewController = ModalViewController(viewModel: viewModel)
 		return viewController
 	}
 
 	private func showPushViewController() {
 		let viewController = createModalPushViewController()
-		navigationController.pushViewController(viewController, animated: true)
+		presenter.push(viewController)
 	}
 
 	private func createModalPushViewController() -> ModalPushViewController {
