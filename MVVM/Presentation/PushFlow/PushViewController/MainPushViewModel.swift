@@ -51,7 +51,7 @@ class MainPushViewModel {
 		.init(
 			pushAgainButtonTitle: .just("Push again"),
 			editValueButtonTitle: .just("Edit value"),
-			value: input.value.debug("🐠 ViewData.value").asDriverOnErrorJustComplete()
+			value: input.value.asDriverOnErrorJustComplete()
 		)
 	}
 }

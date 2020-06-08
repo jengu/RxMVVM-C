@@ -89,7 +89,6 @@ class MainPushViewController: UIViewController {
 			.disposed(by: disposeBag)
 
 		viewModel.viewData.value
-			.debug("🐠 viewData")
 			.map { $0 ?? "Nothing" }
 			.drive(valueLabel.rx.text)
 			.disposed(by: disposeBag)

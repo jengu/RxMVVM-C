@@ -21,7 +21,6 @@ class PushCoordinator: Coordinator<NavigationPresenter, Void> {
 		let viewModel = MainPushViewModel()
 
 		valueRelay.asObserver()
-			.debug("🐠 valueRelay")
 			.bind(to: viewModel.input.value)
 			.disposed(by: bag)
 
