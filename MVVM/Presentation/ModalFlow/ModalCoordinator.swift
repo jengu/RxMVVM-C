@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class ModalCoordinator: Coordinator<ModalNavigationPresenter> {
+class ModalCoordinator: Coordinator<ModalNavigationPresenter, Void> {
 	override func start() {
 		let viewController = createModalViewController()
 		presenter.push(viewController)

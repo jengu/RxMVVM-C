@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AppCoordinator: Coordinator<WindowPresenter> {
+class AppCoordinator: Coordinator<WindowPresenter, Void> {
 	override func start() {
 		let navigationController = UINavigationController()
 		presenter.setRootViewController(navigationController)

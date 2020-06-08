@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class MainCoordinator: Coordinator<NavigationPresenter> {
+class MainCoordinator: Coordinator<NavigationPresenter, Void> {
 
 	override func start() {
 		let viewController = createMainViewController()

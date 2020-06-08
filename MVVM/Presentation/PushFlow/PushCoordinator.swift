@@ -8,7 +8,7 @@
 
 import Foundation
 
-class PushCoordinator: Coordinator<NavigationPresenter> {
+class PushCoordinator: Coordinator<NavigationPresenter, Void> {
 	override func start() {
 		let viewController = createPushViewController()
 		presenter.push(viewController)
