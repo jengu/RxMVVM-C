@@ -12,7 +12,7 @@ import Foundation
 
 class MainPushViewModel {
 	struct Input {
-		let value: PublishRelay<String?> = .init()
+		let value: BehaviorRelay<String?> = .init(value: nil)
 	}
 
 	struct Output {
