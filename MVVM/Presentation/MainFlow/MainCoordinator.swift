@@ -11,7 +11,6 @@ import RxSwift
 import RxCocoa
 
 class MainCoordinator: Coordinator<NavigationPresenter, Void> {
-
 	override func start() {
 		let viewController = createMainViewController()
 		presenter.push(viewController)

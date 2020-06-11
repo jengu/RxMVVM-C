@@ -25,6 +25,11 @@
 		3FBFD12B248A669700E2150B /* PublishRelay+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBFD128248A669700E2150B /* PublishRelay+Ext.swift */; };
 		3FBFD12E248A722D00E2150B /* ModalPushViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBFD12D248A722D00E2150B /* ModalPushViewController.swift */; };
 		3FBFD130248A724300E2150B /* ModalPushViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBFD12F248A724300E2150B /* ModalPushViewModel.swift */; };
+		3FC02E9D249217D800CC642C /* MainViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC02E9C249217D800CC642C /* MainViewModelProtocol.swift */; };
+		3FC02E9F249218BB00CC642C /* ModalViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC02E9E249218BB00CC642C /* ModalViewModelProtocol.swift */; };
+		3FC02EA12492191400CC642C /* ModalPushViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC02EA02492191400CC642C /* ModalPushViewModelProtocol.swift */; };
+		3FC02EA32492198600CC642C /* MainPushViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC02EA22492198600CC642C /* MainPushViewModelProtocol.swift */; };
+		3FC02EA5249219DE00CC642C /* EditValueViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC02EA4249219DE00CC642C /* EditValueViewModelProtocol.swift */; };
 		63126F7D248E3015008818C9 /* PushCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63126F7C248E3015008818C9 /* PushCoordinator.swift */; };
 		63B1E54C248D2F7800D3A72F /* ModalPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B1E54B248D2F7800D3A72F /* ModalPresenter.swift */; };
 		63B1E54E248D326700D3A72F /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B1E54D248D326700D3A72F /* Coordinator.swift */; };
@@ -68,6 +73,11 @@
 		3FBFD128248A669700E2150B /* PublishRelay+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PublishRelay+Ext.swift"; sourceTree = "<group>"; };
 		3FBFD12D248A722D00E2150B /* ModalPushViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalPushViewController.swift; sourceTree = "<group>"; };
 		3FBFD12F248A724300E2150B /* ModalPushViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalPushViewModel.swift; sourceTree = "<group>"; };
+		3FC02E9C249217D800CC642C /* MainViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModelProtocol.swift; sourceTree = "<group>"; };
+		3FC02E9E249218BB00CC642C /* ModalViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewModelProtocol.swift; sourceTree = "<group>"; };
+		3FC02EA02492191400CC642C /* ModalPushViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalPushViewModelProtocol.swift; sourceTree = "<group>"; };
+		3FC02EA22492198600CC642C /* MainPushViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPushViewModelProtocol.swift; sourceTree = "<group>"; };
+		3FC02EA4249219DE00CC642C /* EditValueViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditValueViewModelProtocol.swift; sourceTree = "<group>"; };
 		63126F7C248E3015008818C9 /* PushCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushCoordinator.swift; sourceTree = "<group>"; };
 		63B1E54B248D2F7800D3A72F /* ModalPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalPresenter.swift; sourceTree = "<group>"; };
 		63B1E54D248D326700D3A72F /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -161,6 +171,7 @@
 		3F492461248A5A6700D7C440 /* MainViewController */ = {
 			isa = PBXGroup;
 			children = (
+				3FC02E9C249217D800CC642C /* MainViewModelProtocol.swift */,
 				3F49245F248A5A4900D7C440 /* MainViewModel.swift */,
 				3F49245D248A5A2D00D7C440 /* MainViewController.swift */,
 			);
@@ -170,6 +181,7 @@
 		3F492462248A5A7300D7C440 /* PushViewController */ = {
 			isa = PBXGroup;
 			children = (
+				3FC02EA22492198600CC642C /* MainPushViewModelProtocol.swift */,
 				3F492465248A5A8E00D7C440 /* MainPushViewModel.swift */,
 				3F492463248A5A7F00D7C440 /* MainPushViewController.swift */,
 			);
@@ -179,6 +191,7 @@
 		3F492467248A5A9D00D7C440 /* ModalViewController */ = {
 			isa = PBXGroup;
 			children = (
+				3FC02E9E249218BB00CC642C /* ModalViewModelProtocol.swift */,
 				3F49246A248A5ABF00D7C440 /* ModalViewModel.swift */,
 				3F492468248A5AA800D7C440 /* ModalViewController.swift */,
 			);
@@ -211,6 +224,7 @@
 		3FBFD12C248A722000E2150B /* ModalPushViewController */ = {
 			isa = PBXGroup;
 			children = (
+				3FC02EA02492191400CC642C /* ModalPushViewModelProtocol.swift */,
 				3FBFD12F248A724300E2150B /* ModalPushViewModel.swift */,
 				3FBFD12D248A722D00E2150B /* ModalPushViewController.swift */,
 			);
@@ -259,6 +273,7 @@
 		63F7ECBE248E4BA00008DC91 /* EditValueViewController */ = {
 			isa = PBXGroup;
 			children = (
+				3FC02EA4249219DE00CC642C /* EditValueViewModelProtocol.swift */,
 				63F7ECBF248E4BB00008DC91 /* EditValueViewModel.swift */,
 				63F7ECC1248E4C0C0008DC91 /* EditValueViewController.swift */,
 			);
@@ -347,6 +362,7 @@
 				3F49245C248A5A0F00D7C440 /* AppCoordinator.swift in Sources */,
 				63B1E550248D338F00D3A72F /* Presenter.swift in Sources */,
 				63B1E54E248D326700D3A72F /* Coordinator.swift in Sources */,
+				3FC02E9D249217D800CC642C /* MainViewModelProtocol.swift in Sources */,
 				3F49246F248A5AFD00D7C440 /* ModalCoordinator.swift in Sources */,
 				63B1E564248D5CED00D3A72F /* WindowPresenter.swift in Sources */,
 				3F49246B248A5ABF00D7C440 /* ModalViewModel.swift in Sources */,
@@ -360,15 +376,19 @@
 				3F49245E248A5A2D00D7C440 /* MainViewController.swift in Sources */,
 				3FBFD129248A669700E2150B /* PrimitiveSequence+Ext.swift in Sources */,
 				3FBFD12E248A722D00E2150B /* ModalPushViewController.swift in Sources */,
+				3FC02EA32492198600CC642C /* MainPushViewModelProtocol.swift in Sources */,
 				63F7ECC2248E4C0C0008DC91 /* EditValueViewController.swift in Sources */,
+				3FC02EA12492191400CC642C /* ModalPushViewModelProtocol.swift in Sources */,
 				3F492460248A5A4900D7C440 /* MainViewModel.swift in Sources */,
 				3FBFD130248A724300E2150B /* ModalPushViewModel.swift in Sources */,
 				3F492469248A5AA800D7C440 /* ModalViewController.swift in Sources */,
 				63B1E54C248D2F7800D3A72F /* ModalPresenter.swift in Sources */,
 				63F7ECBD248E4B950008DC91 /* EditValueCoordinator.swift in Sources */,
+				3FC02EA5249219DE00CC642C /* EditValueViewModelProtocol.swift in Sources */,
 				63126F7D248E3015008818C9 /* PushCoordinator.swift in Sources */,
 				3FBFD12B248A669700E2150B /* PublishRelay+Ext.swift in Sources */,
 				63F7ECC0248E4BB00008DC91 /* EditValueViewModel.swift in Sources */,
+				3FC02E9F249218BB00CC642C /* ModalViewModelProtocol.swift in Sources */,
 				3F492464248A5A7F00D7C440 /* MainPushViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -506,10 +526,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = MVVM/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -528,10 +544,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = MVVM/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (

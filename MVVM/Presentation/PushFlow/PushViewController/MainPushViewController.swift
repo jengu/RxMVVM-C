@@ -11,7 +11,7 @@ import RxCocoa
 import UIKit
 
 class MainPushViewController: UIViewController {
-	private let viewModel: MainPushViewModel
+	private let viewModel: MainPushViewModelViewActionsAndData
 	private let disposeBag: DisposeBag = .init()
 	private let pushAgainButton: UIButton = .init()
 	private let valueLabel: UILabel = .init()
@@ -21,7 +21,7 @@ class MainPushViewController: UIViewController {
 		print("\(String(describing: self)): \(#function)")
 	}
 
-	init(viewModel: MainPushViewModel) {
+	init(viewModel: MainPushViewModelViewActionsAndData) {
 		self.viewModel = viewModel
 		super.init(nibName: nil, bundle: nil)
 	}

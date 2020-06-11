@@ -16,13 +16,12 @@ class Coordinator<SomePresenter: Presenter, FlowOutput> {
 	let bag = DisposeBag()
 	let presenter: SomePresenter
 
-	init(presenter: SomePresenter) {
-		self.presenter = presenter
+	deinit {
 		print("\(String(describing: self)): \(#function)")
 	}
 
-	deinit {
-		print("\(String(describing: self)): \(#function)")
+	init(presenter: SomePresenter) {
+		self.presenter = presenter
 	}
 
 	func start() -> FlowOutput {

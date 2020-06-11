@@ -10,40 +10,23 @@ import RxSwift
 import RxCocoa
 import Foundation
 
-class EditValueViewModel {
-	struct Input {
-		let value: BehaviorRelay<String?> = .init(value: nil)
-	}
-
-	struct Output {
-		let value: Driver<String?>
-	}
-
-	struct ViewActions {
-		let savedValue: PublishRelay<String?> = .init()
-	}
-
-	struct ViewData {
-		let saveButtonTitle: Driver<String>
-		let value: Driver<String?>
-	}
-
-	let input: Input = .init()
-	lazy var output: Output = createOutput()
-	let viewActions: ViewActions = .init()
-	lazy var viewData: ViewData = createViewData()
+class EditValueViewModel: EditValueViewModelProtocol {
+	let input: EditValueViewModelInput = .init()
+	lazy var output: EditValueViewModelOutput = createOutput()
+	let viewActions: EditValueViewModelViewActions = .init()
+	lazy var viewData: EditValueViewModelViewData = createViewData()
 
 	deinit {
 		print("\(String(describing: self)): \(#function)")
 	}
 
-	private func createOutput() -> Output {
-		return Output(
+	private func createOutput() -> EditValueViewModelOutput {
+		.init(
 			value: viewActions.savedValue.asDriver()
 		)
 	}
 
-	private func createViewData() -> ViewData {
+	private func createViewData() -> EditValueViewModelViewData {
 		.init(
 			saveButtonTitle: .just("Save"),
 			value: input.value.asDriver()
