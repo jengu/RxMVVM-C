@@ -10,42 +10,24 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class MainViewModel {
-	struct Input {
-	}
-
-	struct Output {
-		let showPushScreen: Driver<Void>
-		let showModalScreen: Driver<Void>
-	}
-
-	struct ViewActions {
-		let tapShowPushScreenButton: PublishRelay<Void> = .init()
-		let tapShowModalScreenButton: PublishRelay<Void> = .init()
-	}
-
-	struct ViewData {
-		let pushButtonTitle: Driver<String>
-		let modalButtonTitle: Driver<String>
-	}
-
-	let input: Input = .init()
-	lazy var output: Output = createOutput()
-	let viewActions: ViewActions = .init()
-	lazy var viewData: ViewData = createViewData()
+class MainViewModel: MainViewModelProtocol {
+	let input: MainViewModelInput = .init()
+	lazy var output: MainViewModelOutput = createOutput()
+	let viewActions: MainViewModelViewActions = .init()
+	lazy var viewData: MainViewModelViewData = createViewData()
 
 	deinit {
 		print("\(String(describing: self)): \(#function)")
 	}
 
-	private func createOutput() -> Output {
+	private func createOutput() -> MainViewModelOutput {
 		.init(
 			showPushScreen: viewActions.tapShowPushScreenButton.asDriver(),
 			showModalScreen: viewActions.tapShowModalScreenButton.asDriver()
 		)
 	}
 
-	private func createViewData() -> ViewData {
+	private func createViewData() -> MainViewModelViewData {
 		.init(
 			pushButtonTitle: .just("Show Push Screen"),
 			modalButtonTitle: .just("Show Modal Screen")

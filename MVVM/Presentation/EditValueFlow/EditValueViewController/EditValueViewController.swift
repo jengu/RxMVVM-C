@@ -11,7 +11,7 @@ import RxCocoa
 import UIKit
 
 class EditValueViewController: UIViewController {
-	private let viewModel: EditValueViewModel
+	private let viewModel: EditValueViewModelViewActionsAndData
 	private let disposeBag: DisposeBag = .init()
 	private let saveButton: UIButton = .init()
 	private let valueTextField: UITextField = .init()
@@ -20,7 +20,7 @@ class EditValueViewController: UIViewController {
 		print("\(String(describing: self)): \(#function)")
 	}
 
-	init(viewModel: EditValueViewModel) {
+	init(viewModel: EditValueViewModelViewActionsAndData) {
 		self.viewModel = viewModel
 		super.init(nibName: nil, bundle: nil)
 	}

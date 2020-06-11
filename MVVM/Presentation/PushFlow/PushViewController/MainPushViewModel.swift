@@ -10,44 +10,24 @@ import RxSwift
 import RxCocoa
 import Foundation
 
-class MainPushViewModel {
-	struct Input {
-		let value: BehaviorRelay<String?> = .init(value: nil)
-	}
-
-	struct Output {
-		let pushAgain: Driver<Void>
-		let editValue: Driver<Void>
-	}
-
-	struct ViewActions {
-		let tapPushAgainButton: PublishRelay<Void> = .init()
-		let tapEditValueButton: PublishRelay<Void> = .init()
-	}
-
-	struct ViewData {
-		let pushAgainButtonTitle: Driver<String>
-		let editValueButtonTitle: Driver<String>
-		let value: Driver<String?>
-	}
-
-	let input: Input = .init()
-	lazy var output: Output = createOutput()
-	let viewActions: ViewActions = .init()
-	lazy var viewData: ViewData = createViewData()
+class MainPushViewModel: MainPushViewModelProtocol {
+	let input: MainPushViewModelInput = .init()
+	lazy var output: MainPushViewModelOutput = createOutput()
+	let viewActions: MainPushViewModelViewActions = .init()
+	lazy var viewData: MainPushViewModelViewData = createViewData()
 
 	deinit {
 		print("\(String(describing: self)): \(#function)")
 	}
 
-	private func createOutput() -> Output {
+	private func createOutput() -> MainPushViewModelOutput {
 		.init(
 			pushAgain: viewActions.tapPushAgainButton.asDriver(),
 			editValue: viewActions.tapEditValueButton.asDriver()
 		)
 	}
 
-	private func createViewData() -> ViewData {
+	private func createViewData() -> MainPushViewModelViewData {
 		.init(
 			pushAgainButtonTitle: .just("Push again"),
 			editValueButtonTitle: .just("Edit value"),

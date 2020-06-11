@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 
 class MainViewController: UIViewController {
-	private let viewModel: MainViewModel
+	private let viewModel: MainViewModelViewActionsAndData
 	private let disposeBag: DisposeBag = .init()
 	private let showPushScreenButton: UIButton = .init()
 	private let showModalScreenButton: UIButton = .init()
@@ -20,7 +20,7 @@ class MainViewController: UIViewController {
 		print("\(String(describing: self)): \(#function)")
 	}
 
-	init(viewModel: MainViewModel) {
+	init(viewModel: MainViewModelViewActionsAndData) {
 		self.viewModel = viewModel
 		super.init(nibName: nil, bundle: nil)
 	}

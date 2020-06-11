@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 
 class ModalViewController: UIViewController {
-	private let viewModel: ModalViewModel
+	private let viewModel: ModalViewModelViewActionsAndData
 	private let disposeBag: DisposeBag = .init()
 	private let showPushScreenButton: UIButton = .init()
 
@@ -19,7 +19,7 @@ class ModalViewController: UIViewController {
 		print("\(String(describing: self)): \(#function)")
 	}
 
-	init(viewModel: ModalViewModel) {
+	init(viewModel: ModalViewModelViewActionsAndData) {
 		self.viewModel = viewModel
 		super.init(nibName: nil, bundle: nil)
 	}
